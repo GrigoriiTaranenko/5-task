@@ -1,0 +1,15 @@
+<% if (data.role == 'admin' && data.page == 'table') { %>
+    <input type="button" id="RP" value="Cоздать исполнителя" class="hidden">
+<% } %>
+
+<% if (data.page == 'auth') { %>
+    <input type="button" id="RC" value="Регистрация клиента">
+<% } else { %>
+    <input type="button" id="Exit" value="Выход" class="hidden">
+<% } %>
+
+<% if (data.page != 'auth' && data.page != 'table' && data.page!='client') { %>
+    <input type="button" id="BBack" value="Главная">
+<% } %>
+
+

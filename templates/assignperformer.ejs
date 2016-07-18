@@ -1,0 +1,9 @@
+<h2>Назначения исполниетеля</h2>
+<p class="moi">выберите исполнителя</p>
+<select class="Performer">
+    <%for (var i=0; i<data.length; i++){%>
+    <option value="<%= data[i].name%>"><%= data[i].name %></option>
+    <%}%>
+</select>
+<br>
+<input type="button" value="Добавить" class="add moi">

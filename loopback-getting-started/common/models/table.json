@@ -1,0 +1,46 @@
+{
+  "name": "table",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "client": {
+      "type": "string"
+    },
+    "comment": {
+      "type": [
+        "string"
+      ]
+    },
+    "performer": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "readiness": {
+      "type": "number"
+    },
+    "data": {
+      "type": "number"
+    },
+    "estimated": {
+      "type": "date"
+    },
+    "deadline": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

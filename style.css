@@ -1,0 +1,80 @@
+.windows{
+    background:fuchsia;
+    border:3px solid black;
+    margin:3px;
+    padding:10px;
+}
+.authorization {
+    background:blue;
+    height:300px;
+}
+.application {
+    background:yellow;
+    height:300px;
+}
+.htable{
+    width:auto;
+    background:red;
+    height:20px;
+}
+.TableApplications{
+    position: relative;
+    width:100%;
+    height:100%;
+    border:2px solid red;
+    background: greenyellow;
+}
+.table{
+    margin-left:30%;
+    margin-top:10px;
+    padding:100px;
+    border-collapse: collapse;
+    border:2px solid yellow;
+    width: 500px;
+}
+th{
+    border:1px solid blue;
+
+}
+td{
+    border:1px solid rosybrown;
+}
+
+
+
+
+.moi {
+    margin:5px;
+}
+.moiBez{
+    margin:0px ;
+}
+.moiblock{
+    margin:20px;
+    padding:10px;
+    border:2px solid black;
+}
+
+
+
+
+.addtr{
+    position:absolute;
+    bottom: 15px;
+    right: 15px;
+}
+
+.hidden{
+    display:none;
+}
+
+
+
+
+
+.client{ }
+.performer{ }
+.editor{ }
+.DefineExecutor{ }
+.comment{  }
+.list{}

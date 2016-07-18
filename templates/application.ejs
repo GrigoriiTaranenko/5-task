@@ -1,0 +1,51 @@
+<ul class="list" xmlns="http://www.w3.org/1999/html">
+    <li><strong>Имя:</strong><%=data.ApplicationWrite.name%></li>
+    <li><strong>Заявка:</strong><%=data.ApplicationWrite.description%></li>
+    <li><strong>Клиент:</strong> <%=data.ApplicationWrite.client%> </li>
+    <li><strong>Исполнитель</strong> <%=data.ApplicationWrite.performer%> </li>
+    <%if (data.role!="client"){ %>
+    <li><strong>статус</strong>
+        <select class="status">
+        <%for (var i=0; i<data.status.length; i++){ %>
+        <option value="<%=data.status[i]%>"><%= data.status[i]%></option>
+
+        <%}%>
+        </select>
+    </li>
+    <%} else {%>
+    <li><strong>Статус:</strong><%=data.ApplicationWrite.status%></li>
+    <%}%>
+    <%if (data.role=='admin'){%>
+        <li><strong>Заведен</strong><input type="date" value="<%=data.ApplicationWrite.estimated %>" class="estimated"></li>
+        <li><strong>Окончательный срок</strong><input type="date" value="<%=data.ApplicationWrite.deadline %>" class="deadline"></li>
+        <li><strong>Сколько сделанно</strong><input type="number" value="<%=data.ApplicationWrite.readiness%>" min="0" max="100" class="readiness"></li>
+    <%}else{%>
+    <li><strong>Заведен</strong><%=data.ApplicationWrite.estimated%></li>
+    <li><strong>Окончательный срок</strong><%=data.ApplicationWrite.deadline%></li>
+    <li><strong>Сколько </strong><%=data.ApplicationWrite.readiness%></li>
+    <%}%>
+    <li><strong>Комментарий:</strong>
+        <%for (var i=0; i<data.ApplicationWrite.comment.length; i++){%>
+            <br>
+            <%=data.ApplicationWrite.comment[i]%>
+        <%}%>
+    </li>
+</ul>
+
+<input type="button" value="Добавить комментарий" class="create">
+<%if (data.role=='admin' && (data.ApplicationWrite.performer=="" || data.ApplicationWrite.performer=="Не назначен")){ %>
+    <input type="button" id="RR" value="Назначить исполнителя">
+<%}%>
+<%if (data.role!='client'){%>
+<input type="button" id="change" value="Сохранить изменения">
+<%}%>
+<!--"Name":"",
+"description":"",
+"client":"",
+"Comment":"",
+"performer":"",
+"status":"",
+"readiness":0,
+"data":"",
+"estimated":"",
+"deadline":""---!>

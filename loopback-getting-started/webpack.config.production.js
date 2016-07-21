@@ -3,9 +3,9 @@
  */
 var webpack = require('webpack');
 module.exports = {
-    entry: ["./main"],
+    entry: ["./client/App"],
     output: {
-        path:__dirname,
+        path:__dirname+ '/client',
         filename: 'bundle.js'
     },
     plugins: [
@@ -16,7 +16,8 @@ module.exports = {
     ],
     module: {
         loaders: [
-            { test: /\.css$/, loader: "style!css-loader" }
+            { test: /\.css$/, loader: "style!css-loader" },
+            { test: /\.ejs$/, loader: 'ejs-loader?variable=data' }
         ]
     }
 };

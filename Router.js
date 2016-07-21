@@ -1,8 +1,11 @@
 var $ = require('jquery');
 
+
 var lastPage = {};
 
 var lastParams = {};
+
+var role='';
 
 var Router = {
     pages: {},
@@ -15,7 +18,6 @@ var Router = {
 
 Router.goto = function (page, params, back) {
     back = back || false;
-    
     // Если у старой страницы есть метод close()
     if (lastPage && lastPage.close) {
         lastPage.close();
@@ -31,11 +33,15 @@ Router.goto = function (page, params, back) {
     $(document.body).attr('data-page', page);
 
     lastPage = new this.pages[page](params);
+    role=this.role;
     this.elem.html('Загрузка!!!');
-    lastPage.render();
-
-    var header = require('./Header');
-    header(page, this.role);
+    lastPage
+        .Ajax()
+        .then(function() {
+            var header = require('./Header');
+            header(page, role);
+            lastPage.render();
+        });
 };
 
 Router.back = function () {

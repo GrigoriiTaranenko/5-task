@@ -1,0 +1,75 @@
+<% if (data.role!="client"){%>
+<select class="client">
+    <%for (var i=0; i<data.client.length; i++){ %>
+    <option value="<%=data.client[i].name%>"><%= data.client[i].name%></option>
+    <%}%>
+</select>
+<%}%>
+<select class="status">
+    <%for (var i=0; i<data.status.length; i++){ %>
+    <option value="<%=data.status[i].name%>"><%= data.status[i].name%></option>
+    <%}%>
+</select>
+<input type="text" class="text" placeholder="Ведите имя заявки">
+<input type="button" value="Применить" class="button">
+<table class="table">
+    <thead>
+        <tr>
+            <th class="TH_Name" data-sort="name">Имя</th>
+            <th class="TH_application" data-sort="description"> Заявка</th>
+            <th data-sort="status">Приоритет</th>
+            <%if (data.role!='client'){%>
+            <th data-sort="client">Клиент</th>
+            <%}%>
+            <%if (data.role!='performer'){%>
+            <th data-sort="performer"> Исполнитель </th>
+            <%}%>
+            <th data-sort="readiness">Сколько выполнено</th>
+            <th data-sort="estimated">Дата началы</th>
+            <th data-sort="deadline">Дата окончания</th>
+        </tr>
+    </thead>
+    <% for (var i = 0; i < data.TableWrite.length; i++) { %>
+        <tr data-id="<%= data.TableWrite[i].data %>" >
+            <td>
+                <%= data.TableWrite[i].name %>
+            </td>
+            <td>
+                <%= data.TableWrite[i].description %>
+            </td>
+            <td>
+                <%= data.TableWrite[i].status%>
+            </td>
+            <%if (data.role!="client"){%>
+            <td>
+                <%if (data.TableWrite[i].client.length!=0){%>
+                <%= data.TableWrite[i].client %>
+                <%} else {%>
+                <%="Нечейный" %>
+                <%}%>
+            </td>
+            <%}%>
+            <%if (data.role!="performer"){%>
+            <td>
+                <%if (data.TableWrite[i].performer.length!=0){%>
+                <%= data.TableWrite[i].performer %>
+                <%} else{ %>
+                <%="Неназначен"%>
+                <%}%>
+            </td>
+            <%}%>
+            <td>
+                <%=data.TableWrite[i].readiness+"%"%>
+            </td>
+            <td>
+                <%=data.TableWrite[i].estimated%>
+            </td>
+            <td>
+                <%=data.TableWrite[i].deadline%>
+            </td>
+        </tr>
+    <% } %>
+</table>
+<%if (data.role!='performer') {%>
+<input type='button' value="Добавить заявку" id="addtr" class="addtr hidden">
+<%}%>

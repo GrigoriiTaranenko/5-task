@@ -1,0 +1,10 @@
+[data-page="auth"] {
+    background-color: red;
+}
+
+[data-page="table"] {
+    background-color: green;
+}
+.table{
+    color:blue;
+}

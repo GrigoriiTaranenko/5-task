@@ -56,7 +56,7 @@ Table.prototype.getData = function (data) {
     var search=this.search();
     var sort=this.th;
     if (status && status!="не фильтровать") {
-        data.TableWrite=_.filter(data.TableWrite, {"status":status})
+        data.TableWrite=_.filter(data.TableWrite, {"status":status});
         this.swap(data.status,status);
     }
     if (client!="не фильтровать" && client) {
@@ -79,38 +79,13 @@ Table.prototype.addtr=function(){
 
 Table.prototype.application=function(event){
     router.goto('application',{
-        table:this.tables[event.currentTarget.dataset.id]
+        table:_.find(this.tables,{data:+event.currentTarget.dataset.id})
     })
 };
-
-Table.ReadUserAjax=function() {
-    router.ajax({
-        url: "http://localhost:3000/api/names",
-        async: false,
-        success: function (data) {
-            Table.User = data;
-        }
-    })
-};
-Table.ReadTableAjax=function(){
-    router.ajax({
-        url:"http://localhost:3000/api/tables",
-        async:false,
-        success:function (data) {
-            Table.Tables=data
-        }
-    })
-};
-
-
 
 Table.prototype.status=[{"name":"не фильтровать"},
     {"name":"online"},
     {"name":"offline"}];
-
-
-
-
 
 Table.prototype.addcollection=function(client,allClient)
 {

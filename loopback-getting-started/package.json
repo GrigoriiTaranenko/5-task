@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "server/server.js",
   "scripts": {
-    "start": "node .",
+    "start": "slc run",
+    "postinstall": "npm run prod",
     "pretest": "eslint .",
     "posttest": "nsp check",
     "dev": "webpack",
